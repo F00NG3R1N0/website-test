@@ -2,65 +2,270 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Elena Moore | Certificates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elena Moore | Skills & Certificates</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Additional styles for skills page */
+    .skills-section {
+      margin-bottom: 3rem;
+    }
+    
+    .skills-category {
+      margin-bottom: 2rem;
+    }
+    
+    .skills-category h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #2c5f6b;
+      border-left: 3px solid #87b9bb;
+      padding-left: 0.75rem;
+    }
+    
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .skill-tag {
+      background: #eef3f3;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #2c5f6b;
+      transition: all 0.2s;
+    }
+    
+    .skill-tag:hover {
+      background: #d0e2e2;
+      transform: translateY(-2px);
+    }
+    
+    .skill-tag.highlight {
+      background: #2c5f6b;
+      color: white;
+    }
+    
+    .cert-section {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 2px solid #e0eceb;
+    }
+    
+    .cert-item {
+      background: white;
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #eef2f0;
+    }
+    
+    .cert-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .cert-date {
+      font-size: 0.75rem;
+      color: #8aa8a8;
+    }
+    
+    .skill-level {
+      font-size: 0.7rem;
+      background: #e8f0f0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      margin-left: 0.5rem;
+    }
+    
+    @media (max-width: 600px) {
+      .cert-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="nav-container">
     <div class="logo">
-      <a href="index">EM</a>
+      <a href="index.html">EM</a>
     </div>
     <ul class="nav-links">
-      <li><a href="index">About Me</a></li>
-      <li><a href="work">My Work</a></li>
-      <li><a href="photos">Photos</a></li>
-      <li><a href="certificates" class="active">Certificates</a></li>
+      <li><a href="index.html">About Me</a></li>
+      <li><a href="work.html">My Work</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="certificates.html" class="active">Skills & Certs</a></li>
     </ul>
   </div>
 </header>
 
 <main class="main-content">
-  <h2 class="section-title">Certifications & learning</h2>
-  <div class="cert-list">
-    <div class="cert-entry">
-      <div class="cert-info">
-        <h4>Google UX Design Certificate</h4>
-        <p>Foundations of user experience, wireframing & high-fidelity prototypes — 2023</p>
+  <h2 class="section-title">Skills & Certifications</h2>
+  
+  <!-- SKILLS SECTION -->
+  <div class="skills-section">
+    
+    <!-- Marketing Automation -->
+    <div class="skills-category">
+      <h3>📧 Marketing Automation & CRM</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">Marketo</span>
+        <span class="skill-tag">HubSpot</span>
+        <span class="skill-tag">Salesforce</span>
+        <span class="skill-tag">Mailchimp</span>
+        <span class="skill-tag">Lead Scoring</span>
+        <span class="skill-tag">Email Campaigns</span>
       </div>
-      <a href="#" class="cert-link" onclick="alert('🔐 Demo credential. In production, this would link to your actual certificate.'); return false;">📄 show credential</a>
     </div>
-    <div class="cert-entry">
-      <div class="cert-info">
-        <h4>Frontend Masters — Advanced CSS & Animations</h4>
-        <p>In-depth mastery of modern flex, grid, and web animations — 2024</p>
+    
+    <!-- Content Management -->
+    <div class="skills-category">
+      <h3>📝 Content Management Systems</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">Adobe AEM</span>
+        <span class="skill-tag">Webflow</span>
+        <span class="skill-tag">Squarespace</span>
+        <span class="skill-tag">WordPress</span>
+        <span class="skill-tag">Shopify</span>
       </div>
-      <a href="#" class="cert-link" onclick="alert('🔐 Demo credential. In production, this would link to your actual certificate.'); return false;">📄 view</a>
     </div>
-    <div class="cert-entry">
-      <div class="cert-info">
-        <h4>Adobe Creative Educator</h4>
-        <p>Visual storytelling, creative tools in education — 2022</p>
+    
+    <!-- Project Management -->
+    <div class="skills-category">
+      <h3>📊 Project Management</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">Asana</span>
+        <span class="skill-tag">Monday.com</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">ClickUp</span>
+        <span class="skill-tag">Agile</span>
+        <span class="skill-tag">Scrum</span>
       </div>
-      <a href="#" class="cert-link" onclick="alert('🔐 Demo credential. In production, this would link to your actual certificate.'); return false;">📄 badge</a>
     </div>
-    <div class="cert-entry">
-      <div class="cert-info">
-        <h4>JavaScript Algorithms & Data Structures (freeCodeCamp)</h4>
-        <p>Problem solving, ES6+, and algorithm fundamentals — 2023</p>
+    
+    <!-- Microsoft Office -->
+    <div class="skills-category">
+      <h3>📎 Microsoft Office</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Word</span>
+        <span class="skill-tag">Power Automate</span>
+        <span class="skill-tag">Teams</span>
+        <span class="skill-tag">SharePoint</span>
       </div>
-      <a href="#" class="cert-link" onclick="alert('🔐 Demo credential. In production, this would link to your actual certificate.'); return false;">📄 certificate</a>
+    </div>
+    
+    <!-- Web Development -->
+    <div class="skills-category">
+      <h3>💻 Web Development</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Responsive Design</span>
+      </div>
+    </div>
+    
+    <!-- Analytics -->
+    <div class="skills-category">
+      <h3>📈 Analytics & Data</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">Google Analytics</span>
+        <span class="skill-tag">Looker Studio</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Data Visualization</span>
+      </div>
+    </div>
+    
+    <!-- Languages (if applicable) -->
+    <div class="skills-category">
+      <h3>🌐 Languages</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">English <span class="skill-level">Native</span></span>
+        <span class="skill-tag">Spanish <span class="skill-level">Professional</span></span>
+        <span class="skill-tag">German <span class="skill-level">Conversational</span></span>
+      </div>
     </div>
   </div>
-  <div style="margin-top: 2rem; background: #f2f6f5; border-radius: 24px; padding: 1rem 1.5rem;">
-    <p>🎓 Lifelong learner — currently exploring AI ethics & creative coding. Always open to collaborations.</p>
+  
+  <!-- CERTIFICATIONS SECTION -->
+  <div class="cert-section">
+    <h2 class="section-title" style="margin-top: 1rem;">Certifications</h2>
+    
+    <div class="cert-item">
+      <div class="cert-info">
+        <h4>Google UX Design Certificate</h4>
+        <div class="cert-date">Google | 2023</div>
+      </div>
+      <span class="badge">📄 Verified</span>
+    </div>
+    
+    <div class="cert-item">
+      <div class="cert-info">
+        <h4>HubSpot Marketing Software Certification</h4>
+        <div class="cert-date">HubSpot Academy | 2024</div>
+      </div>
+      <span class="badge">📄 Verified</span>
+    </div>
+    
+    <div class="cert-item">
+      <div class="cert-info">
+        <h4>Salesforce Administrator</h4>
+        <div class="cert-date">Salesforce | 2023</div>
+      </div>
+      <span class="badge">📄 In Progress</span>
+    </div>
+    
+    <div class="cert-item">
+      <div class="cert-info">
+        <h4>Microsoft Office Specialist: Excel Expert</h4>
+        <div class="cert-date">Microsoft | 2024</div>
+      </div>
+      <span class="badge">📄 Verified</span>
+    </div>
+    
+    <div class="cert-item">
+      <div class="cert-info">
+        <h4>Python for Data Science</h4>
+        <div class="cert-date">IBM | 2023</div>
+      </div>
+      <span class="badge">📄 Verified</span>
+    </div>
+    
+    <div class="cert-item">
+      <div class="cert-info">
+        <h4>Google Analytics Individual Qualification</h4>
+        <div class="cert-date">2024</div>
+      </div>
+      <span class="badge">📄 Verified</span>
+    </div>
+  </div>
+  
+  <!-- Optional: Skill Proficiency Summary -->
+  <div style="margin-top: 2.5rem; background: #f2f8f6; border-radius: 20px; padding: 1.2rem 1.8rem;">
+    <p style="font-size: 0.9rem;">💡 <strong>Note to recruiters:</strong> Full portfolio projects demonstrating these skills are available upon request. Certificates can be verified via linked credentials.</p>
   </div>
 </main>
 
 <footer class="site-footer">
-  <p>© 2025 Elena Moore — designed with curiosity & warmth. All placeholder content represents actual portfolio sections.</p>
+  <p>© 2025 Elena Moore</p>
 </footer>
 
 </body>
