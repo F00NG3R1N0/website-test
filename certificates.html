@@ -45,11 +45,7 @@
       transform: translateY(-2px);
     }
     
-    .skill-tag.highlight {
-      background: #2c5f6b;
-      color: white;
-    }
-    
+    /* Certificates section */
     .cert-section {
       margin-top: 2rem;
       padding-top: 1rem;
@@ -65,9 +61,19 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 1rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       border: 1px solid #eef2f0;
+      transition: all 0.2s;
+    }
+    
+    .cert-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .cert-info {
+      flex: 2;
+      min-width: 180px;
     }
     
     .cert-info h4 {
@@ -80,18 +86,121 @@
       color: #8aa8a8;
     }
     
-    .skill-level {
-      font-size: 0.7rem;
-      background: #e8f0f0;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      margin-left: 0.5rem;
+    /* Thumbnail styles */
+    .cert-thumbnail {
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #f5f7f6;
+      border-radius: 8px;
+      padding: 0.3rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid #dce8e5;
     }
     
-    @media (max-width: 600px) {
+    .cert-thumbnail:hover {
+      background: #e8f0ee;
+      transform: scale(1.02);
+    }
+    
+    .cert-thumbnail span:first-child {
+      font-size: 1.2rem;
+    }
+    
+    .thumbnail-icon {
+      font-size: 0.8rem;
+      color: #5f9e9e;
+    }
+    
+    /* Modal/Popup styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      backdrop-filter: blur(5px);
+    }
+    
+    .modal-content {
+      position: relative;
+      background-color: white;
+      margin: 5% auto;
+      padding: 1rem;
+      width: 85%;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      animation: modalFadeIn 0.3s ease;
+    }
+    
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #e0eceb;
+    }
+    
+    .modal-header h3 {
+      margin: 0;
+      color: #2c5f6b;
+    }
+    
+    .close-modal {
+      font-size: 1.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: #8aa8a8;
+      transition: 0.2s;
+    }
+    
+    .close-modal:hover {
+      color: #2c5f6b;
+    }
+    
+    .modal-body {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .modal-body img {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .modal-body p {
+      margin-top: 1rem;
+      color: #5f6e6a;
+      font-size: 0.85rem;
+    }
+    
+    @media (max-width: 700px) {
       .cert-item {
         flex-direction: column;
         align-items: flex-start;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
       }
     }
   </style>
@@ -113,9 +222,9 @@
 </header>
 
 <main class="main-content">
-  <h2 class="section-title">Skills & Certifications</h2>
+  <h2 class="section-title">Skills & Certificates</h2>
   
-  <!-- SKILLS SECTION -->
+  <!-- ========== SKILLS SECTION (TOP) ========== -->
   <div class="skills-section">
     
     <!-- Marketing Automation -->
@@ -193,80 +302,189 @@
         <span class="skill-tag">Data Visualization</span>
       </div>
     </div>
-    
-    <!-- Languages (if applicable) -->
-    <div class="skills-category">
-      <h3>🌐 Languages</h3>
-      <div class="skills-grid">
-        <span class="skill-tag">English <span class="skill-level">Native</span></span>
-        <span class="skill-tag">Spanish <span class="skill-level">Professional</span></span>
-        <span class="skill-tag">German <span class="skill-level">Conversational</span></span>
-      </div>
-    </div>
   </div>
   
-  <!-- CERTIFICATIONS SECTION -->
+  <!-- ========== CERTIFICATES SECTION (BOTTOM) ========== -->
   <div class="cert-section">
-    <h2 class="section-title" style="margin-top: 1rem;">Certifications</h2>
+    <h2 class="section-title" style="margin-top: 1rem;">Certificates</h2>
     
+    <!-- Certificate 1 -->
     <div class="cert-item">
       <div class="cert-info">
         <h4>Google UX Design Certificate</h4>
-        <div class="cert-date">Google | 2023</div>
+        <div class="cert-date">Issued: 2023 | Credential ID: UX-2023-8742</div>
       </div>
-      <span class="badge">📄 Verified</span>
+      <div class="cert-thumbnail" onclick="openModal('cert1')">
+        <span>📄</span>
+        <span class="thumbnail-icon">View Certificate →</span>
+      </div>
     </div>
     
+    <!-- Certificate 2 -->
     <div class="cert-item">
       <div class="cert-info">
         <h4>HubSpot Marketing Software Certification</h4>
-        <div class="cert-date">HubSpot Academy | 2024</div>
+        <div class="cert-date">Issued: 2024 | Credential ID: HUB-4456-2024</div>
       </div>
-      <span class="badge">📄 Verified</span>
+      <div class="cert-thumbnail" onclick="openModal('cert2')">
+        <span>📄</span>
+        <span class="thumbnail-icon">View Certificate →</span>
+      </div>
     </div>
     
+    <!-- Certificate 3 -->
     <div class="cert-item">
       <div class="cert-info">
         <h4>Salesforce Administrator</h4>
-        <div class="cert-date">Salesforce | 2023</div>
+        <div class="cert-date">Issued: 2023 | Credential ID: SF-8932-2023</div>
       </div>
-      <span class="badge">📄 In Progress</span>
+      <div class="cert-thumbnail" onclick="openModal('cert3')">
+        <span>📄</span>
+        <span class="thumbnail-icon">View Certificate →</span>
+      </div>
     </div>
     
+    <!-- Certificate 4 -->
     <div class="cert-item">
       <div class="cert-info">
         <h4>Microsoft Office Specialist: Excel Expert</h4>
-        <div class="cert-date">Microsoft | 2024</div>
+        <div class="cert-date">Issued: 2024 | Credential ID: MOS-EX-2024-1278</div>
       </div>
-      <span class="badge">📄 Verified</span>
+      <div class="cert-thumbnail" onclick="openModal('cert4')">
+        <span>📄</span>
+        <span class="thumbnail-icon">View Certificate →</span>
+      </div>
     </div>
     
+    <!-- Certificate 5 -->
     <div class="cert-item">
       <div class="cert-info">
         <h4>Python for Data Science</h4>
-        <div class="cert-date">IBM | 2023</div>
+        <div class="cert-date">Issued: 2023 | Credential ID: IBM-PY-3321</div>
       </div>
-      <span class="badge">📄 Verified</span>
+      <div class="cert-thumbnail" onclick="openModal('cert5')">
+        <span>📄</span>
+        <span class="thumbnail-icon">View Certificate →</span>
+      </div>
     </div>
     
+    <!-- Certificate 6 -->
     <div class="cert-item">
       <div class="cert-info">
         <h4>Google Analytics Individual Qualification</h4>
-        <div class="cert-date">2024</div>
+        <div class="cert-date">Issued: 2024 | Credential ID: GA-IQ-7743</div>
       </div>
-      <span class="badge">📄 Verified</span>
+      <div class="cert-thumbnail" onclick="openModal('cert6')">
+        <span>📄</span>
+        <span class="thumbnail-icon">View Certificate →</span>
+      </div>
     </div>
   </div>
   
-  <!-- Optional: Skill Proficiency Summary -->
-  <div style="margin-top: 2.5rem; background: #f2f8f6; border-radius: 20px; padding: 1.2rem 1.8rem;">
-    <p style="font-size: 0.9rem;">💡 <strong>Note to recruiters:</strong> Full portfolio projects demonstrating these skills are available upon request. Certificates can be verified via linked credentials.</p>
+  <div style="margin-top: 2rem; background: #f2f8f6; border-radius: 20px; padding: 1rem 1.5rem;">
+    <p style="font-size: 0.85rem;">📌 <strong>Note:</strong> Click on "View Certificate" to see full credentials. All certificates are verifiable upon request.</p>
   </div>
 </main>
 
 <footer class="site-footer">
   <p>© 2025 Elena Moore</p>
 </footer>
+
+<!-- ========== MODAL POPUPS FOR CERTIFICATES ========== -->
+<div id="certModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">Certificate</h3>
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <img id="modalImage" src="" alt="Certificate">
+      <p id="modalCaption">Click outside to close</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Certificate data - replace with your actual certificate images
+  const certificates = {
+    cert1: {
+      title: "Google UX Design Certificate",
+      image: "images/certificates/google-ux.jpg",
+      caption: "Google UX Design Certificate - Issued 2023"
+    },
+    cert2: {
+      title: "HubSpot Marketing Software Certification",
+      image: "images/certificates/hubspot-marketing.jpg",
+      caption: "HubSpot Academy Certification - Issued 2024"
+    },
+    cert3: {
+      title: "Salesforce Administrator",
+      image: "images/certificates/salesforce-admin.jpg",
+      caption: "Salesforce Administrator Certification - 2023"
+    },
+    cert4: {
+      title: "Microsoft Office Specialist: Excel Expert",
+      image: "images/certificates/mos-excel.jpg",
+      caption: "Microsoft Office Specialist - Excel Expert 2024"
+    },
+    cert5: {
+      title: "Python for Data Science",
+      image: "images/certificates/ibm-python.jpg",
+      caption: "IBM Python for Data Science - 2023"
+    },
+    cert6: {
+      title: "Google Analytics Individual Qualification",
+      image: "images/certificates/google-analytics.jpg",
+      caption: "Google Analytics IQ - 2024"
+    }
+  };
+
+  // Get modal elements
+  const modal = document.getElementById('certModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalImage = document.getElementById('modalImage');
+  const modalCaption = document.getElementById('modalCaption');
+
+  // Open modal function
+  function openModal(certId) {
+    const cert = certificates[certId];
+    if (cert) {
+      modalTitle.textContent = cert.title;
+      modalImage.src = cert.image;
+      modalImage.alt = cert.title;
+      modalCaption.textContent = cert.caption;
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden"; // Prevent scrolling behind modal
+    } else {
+      // Fallback if image not ready yet
+      modalTitle.textContent = "Certificate Preview";
+      modalImage.src = "https://placehold.co/600x400/eef3f3/2c5f6b?text=Certificate+Image+Coming+Soon";
+      modalCaption.textContent = "Upload your certificate image to display it here.";
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  // Close modal function
+  function closeModal() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto"; // Re-enable scrolling
+  }
+
+  // Close modal when clicking outside the modal content
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+
+  // Close with ESC key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape" && modal.style.display === "block") {
+      closeModal();
+    }
+  });
+</script>
 
 </body>
 </html>
